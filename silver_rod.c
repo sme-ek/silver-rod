@@ -2,58 +2,66 @@
 // Created by smeek on 14/03/2021.
 //
 #include "raylib.h"
-#include "screens\screens.h"
+#include "screens/screens.h"
 #include <stdlib.h>
-
-#if defined(PLATFORM_WEB)
-#include <emscripten/emscripten.h>
-#endif
-
+GameScreen currentScreen = 0;
 
 const int screenWidth = 1920;
 const int screenHeight = 1080;
-void UpdateFrame(void); //updates frame on screen
 
-extern GameScreen currentScreen;
-void rlInitLogoScreen(void);
-void InitDevScreen (void);
-void DrawDevScreen (void);
-void UpdateFrame (void);
-void rlUpdateLogoScreen (void);
-int rlFinishLogoScreen ();
+static void UpdateFrame(void); //updates frame on screen
 
-int main(void)
-{
+//game loop
+int main(void) {
     InitWindow(screenWidth, screenHeight, "silver rod 21.1");
 
     currentScreen = RL_LOGO;
     rlInitLogoScreen();
-    InitDevScreen();
 
     SetTargetFPS(60);
 
-    while (!WindowShouldClose()){
+    while (!WindowShouldClose()) {
         UpdateFrame();
     }
-}
 
-void ChangeScreen(int screen) {
+//this unloads current screen data before closing application
     switch (currentScreen) {
-        case RL_LOGO: rlUnloadLogoScreen();
-        case DEV_WARNING: UnloadDevScreen();
+        case RL_LOGO:
+            rlUnloadLogoScreen();
+            break;
+        case DEV_WARNING:
+            UnloadDevScreen();
+            break;
     }
-    switch (screen) {
-        case RL_LOGO: rlInitLogoScreen();
-        case DEV_WARNING: DrawDevScreen();
-    }
-    currentScreen = screen;
+    CloseWindow();
+    return 0;
 }
 
-void UpdateFrame(void){
-    switch(currentScreen) {
-        case RL_LOGO: {
-            rlUpdateLogoScreen();
-            if (rlFinishLogoScreen()) ChangeScreen(DEV_WARNING);
+static void ChangeScreen(int screen) {
+        switch (currentScreen) {
+            case RL_LOGO:
+                rlUnloadLogoScreen(); break;
+            case DEV_WARNING:
+                UnloadDevScreen(); break;
+            default: break;
+        }
+        switch (screen) {
+            case RL_LOGO:
+                rlInitLogoScreen(); break;
+            case DEV_WARNING:
+                InitDevScreen(); break;
+            default: break;
+        }
+        currentScreen = screen;
+    }
+static void UpdateFrame(void) {
+        switch (currentScreen) {
+            case RL_LOGO: {
+                rlUpdateLogoScreen();
+                if (rlFinishLogoScreen()) ChangeScreen(DEV_WARNING);
+            } break;
+            case DEV_WARNING: {
+                UpdateDevScreen();
         }
     }
 }
