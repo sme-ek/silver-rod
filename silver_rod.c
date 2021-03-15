@@ -5,10 +5,6 @@
 #include "screens\screens.h"
 #include <stdlib.h>
 
-#if defined(PLATFORM_WEB)
-#include <emscripten/emscripten.h>
-#endif
-
 
 const int screenWidth = 1920;
 const int screenHeight = 1080;
