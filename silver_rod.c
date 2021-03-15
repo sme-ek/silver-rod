@@ -14,6 +14,7 @@ const int screenWidth = 1920;
 const int screenHeight = 1080;
 void UpdateFrame(void); //updates frame on screen
 
+extern GameScreen currentScreen;
 void rlInitLogoScreen(void);
 void InitDevScreen (void);
 void DrawDevScreen (void);
