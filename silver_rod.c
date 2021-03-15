@@ -15,6 +15,7 @@ const int screenHeight = 1080;
 //local
 static void ChangeScreen(int screen);
 static void UpdateFrame(void); //updates frame on screen
+static bool onTransition = false;
 
 
 //game loop
@@ -46,13 +47,16 @@ static void ChangeScreen (int screen){
 }
 
 static void UpdateFrame(void) {
+    if (!onTransition) {
         switch (currentScreen) {
             case RL_LOGO: {
                 rlUpdateLogoScreen();
                 if (rlFinishLogoScreen()) ChangeScreen(DEV_WARNING);
-            } break;
+                default: break;
+            }
             case DEV_WARNING: {
                 UpdateDevScreen();
+            } break;
         }
     }
 }
