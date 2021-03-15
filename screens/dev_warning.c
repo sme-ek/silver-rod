@@ -5,7 +5,8 @@
 int finishScreen;
 
 void InitDevScreen(void){
-    picture = LoadTexure ("");
+    DrawText("WARNING: this is a developmental build."
+             "Please report issues on github.", 20, LIGHTGRAY);
 }
 
 void UpdateDevScreen(void){
@@ -15,9 +16,7 @@ void UpdateDevScreen(void){
     }
 }
 
-void DrawDevScreen{
-    DrawText("WARNING: this is a developmental build."
-             "Please report issues on github.", 20, LIGHTGRAY);
+
 };
 void UnloadDevScreen(void){
 
