@@ -2,8 +2,8 @@
 // Created by smeek on 14/03/2021.
 //
 
-#include "raylib.h"
-#include "C:\Users\18432\Desktop\medoing\silver-rod-git\screens\screens.h"
+#include "include/raylib.h"
+#include "screens.h"
 #include <stdlib.h>
 
 GameScreen currentScreen = 0;
