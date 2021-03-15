@@ -13,13 +13,13 @@
 const int screenWidth = 1920;
 const int screenHeight = 1080;
 void UpdateFrame(void); //updates frame on screen
-static void currentScreen();
-static void rlInitLogoScreen();
-static void InitDevScreen ();
-static void DrawDevScreen ();
-static void UpdateFrame ();
-static void rlUpdateLogoScreen ();
-static void rlFinishLogoScreen ();
+
+void rlInitLogoScreen(void);
+void InitDevScreen (void);
+void DrawDevScreen (void);
+void UpdateFrame (void);
+void rlUpdateLogoScreen (void);
+int rlFinishLogoScreen ();
 
 int main(void)
 {
