@@ -10,7 +10,7 @@ GameScreen currentScreen = 0;
 
 const int screenWidth = 1920;
 const int screenHeight = 1080;
-void UpdateFrame(void); //updates frame on screen
+void UpdateScreen(void); //updates frame on screen
 
 int main(void)
 {
@@ -23,7 +23,7 @@ int main(void)
     SetTargetFPS(60);
 
     while (!WindowShouldClose()){
-        UpdateFrame();
+        UpdateScreen();
     }
 }
 
@@ -40,7 +40,7 @@ void ChangeScreen(int screen) {
     currentScreen = screen;
 }
 
-void UpdateFrame(void){
+void UpdateScreen(void){
     switch(currentScreen) {
         case RL_LOGO: {
             rlUpdateLogoScreen();
