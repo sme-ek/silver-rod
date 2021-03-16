@@ -144,7 +144,7 @@ void rlUpdateLogoScreen(void)
             if (alpha <= 0.0f)
             {
                 alpha = 0.0f;
-                finishScreen = 1;
+                if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON) || IsKeyPressed(KEY_ENTER)) finishScreen = true;
             }
         }
     }
