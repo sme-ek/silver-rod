@@ -5,23 +5,19 @@
 int finishScreen;
 
 void InitDevScreen(void){
-    picture = LoadTexure ("");
-}
+    DrawText("WARNING: this is a developmental build."
+             "Please report issues on github.", 20);
+};
 
 void UpdateDevScreen(void){
-    if ((IsMouseButtonPressed(MOUSE_LEFT_BUTTON)))
     {
         finishScreen = 1;
     }
-}
-
-void DrawDevScreen{
-    DrawText("WARNING: this is a developmental build."
-             "Please report issues on github.", 20, LIGHTGRAY);
 };
+
 void UnloadDevScreen(void){
 
-}
+};
 int FinishDevScreen(void){
     return finishScreen;
-}
+};
