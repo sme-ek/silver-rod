@@ -26,8 +26,6 @@
 #ifndef SCREENS_H
 #define SCREENS_H
 
-#include "C:\Users\18432\Desktop\medoing\silver_rod\screens\screens.h"
-#include "screens.h"
 
 typedef enum GameScreen { RL_LOGO = 0, DEV_WARNING} GameScreen;
 
@@ -35,8 +33,6 @@ typedef enum GameScreen { RL_LOGO = 0, DEV_WARNING} GameScreen;
 // Global Variables Definition
 //----------------------------------------------------------------------------------
 extern GameScreen currentScreen;
-extern Font font;
-extern Music music;
 
 #ifdef __cplusplus
 extern "C" {            // Prevents name mangling of functions
@@ -50,15 +46,6 @@ void rlUpdateLogoScreen(void);
 void rlDrawLogoScreen(void);
 void rlUnloadLogoScreen(void);
 int rlFinishLogoScreen(void);
-
-//----------------------------------------------------------------------------------
-// Logo Screen Functions Declaration
-//----------------------------------------------------------------------------------
-void InitLogoScreen(void);
-void UpdateLogoScreen(void);
-void DrawLogoScreen(void);
-void UnloadLogoScreen(void);
-int FinishLogoScreen(void);
 
 //----------------------------------------------------------------------------------
 // Title Screen Functions Declaration
