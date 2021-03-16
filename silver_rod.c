@@ -7,7 +7,6 @@
 #include <stdlib.h>
 
 GameScreen currentScreen = 0;
-
 //global
 const int screenWidth = 1920;
 const int screenHeight = 1080;
