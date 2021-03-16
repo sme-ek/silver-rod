@@ -23,7 +23,7 @@
 *
 **********************************************************************************************/
 
-#include "include/raylib.h"
+#include "../include/raylib.h"
 #include "screens.h"
 
 #define LOGO_RECS_SIDE  16

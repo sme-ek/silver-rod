@@ -3,7 +3,7 @@
 //
 
 #include "include/raylib.h"
-#include "screens.h"
+#include "screens/screens.h"
 #include <stdlib.h>
 
 GameScreen currentScreen = 0;
