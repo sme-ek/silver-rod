@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.17)
-project(${silver_rod} C)
+project(${PROJECT_NAME} silver_rod)
 
 set(CMAKE_C_STANDARD 99)
 
@@ -36,7 +36,7 @@ endif()
 
 # This is the main part:
 
-add_executable(${PROJECT_NAME} silver_rod.c)
+add_executable(${PROJECT_NAME} silver_rod.c screens/dev_warning.c screens/raylib_logo.c)
 #set(raylib_VERBOSE 1)
 target_link_libraries(${PROJECT_NAME} raylib)
 
