@@ -1,27 +1,28 @@
 //
 // Created by smeek on 14/03/2021.
 //
+#include "C:\Users\18432\Desktop\medoing\silver-rod-git\include\raylib.h"
 
 int finishScreen;
 
 void InitDevScreen(void){
-    picture = LoadTexure ("");
+
+};
+
+void DrawDevScreen () {
+    DrawText("WARNING: this is a developmental build."
+             "Please report issues on github.", 1000, 1000, 20, BLACK);
 }
 
 void UpdateDevScreen(void){
-    if ((IsMouseButtonPressed(MOUSE_LEFT_BUTTON)))
     {
         finishScreen = 1;
     }
-}
-
-void DrawDevScreen{
-    DrawText("WARNING: this is a developmental build."
-             "Please report issues on github.", 20, LIGHTGRAY);
 };
+
 void UnloadDevScreen(void){
 
-}
+};
 int FinishDevScreen(void){
     return finishScreen;
-}
+};

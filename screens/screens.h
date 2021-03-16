@@ -29,7 +29,7 @@
 #include "C:\Users\18432\Desktop\medoing\silver_rod\screens\screens.h"
 #include "screens.h"
 
-typedef enum GameScreen { RL_LOGO = 0, DEV_WARNING, GAMEPLAY } GameScreen;
+typedef enum GameScreen { RL_LOGO = 0, DEV_WARNING} GameScreen;
 
 //----------------------------------------------------------------------------------
 // Global Variables Definition

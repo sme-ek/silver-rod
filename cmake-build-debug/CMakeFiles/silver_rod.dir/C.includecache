@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/18432/Desktop/medoing/silver-rod-git/include/raylib.h
+stdarg.h
+-
+stdbool.h
+-
+
+C:/Users/18432/Desktop/medoing/silver-rod-git/screens/screens.h
+C:/Users/18432/Desktop/medoing/silver_rod/screens/screens.h
+-
+screens.h
+C:/Users/18432/Desktop/medoing/silver-rod-git/screens/screens.h
+
+C:/Users/18432/Desktop/medoing/silver-rod-git/silver_rod.c
+include/raylib.h
+C:/Users/18432/Desktop/medoing/silver-rod-git/include/raylib.h
+screens/screens.h
+C:/Users/18432/Desktop/medoing/silver-rod-git/screens/screens.h
+stdlib.h
+-
+
+C:/Users/18432/Desktop/medoing/silver_rod/screens/screens.h
+C:/Users/18432/Desktop/medoing/silver_rod/screens/screens.h
+-
+screens.h
+C:/Users/18432/Desktop/medoing/silver_rod/screens/screens.h
+

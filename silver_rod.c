@@ -1,10 +1,12 @@
 //
 // Created by smeek on 14/03/2021.
 //
-#include "raylib.h"
-#include "screens\screens.h"
+
+#include "include/raylib.h"
+#include "screens/screens.h"
 #include <stdlib.h>
 
+GameScreen currentScreen = 0;
 
 const int screenWidth = 1920;
 const int screenHeight = 1080;
@@ -33,6 +35,7 @@ void ChangeScreen(int screen) {
     switch (screen) {
         case RL_LOGO: rlInitLogoScreen();
         case DEV_WARNING: DrawDevScreen();
+        default: break;
     }
     currentScreen = screen;
 }
@@ -43,5 +46,7 @@ void UpdateFrame(void){
             rlUpdateLogoScreen();
             if (rlFinishLogoScreen()) ChangeScreen(DEV_WARNING);
         }
+        case DEV_WARNING:
+            break;
     }
 }
