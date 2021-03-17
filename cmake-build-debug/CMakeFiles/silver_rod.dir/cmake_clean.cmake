@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/silver_rod.dir/screens/character_select.c.obj"
   "CMakeFiles/silver_rod.dir/screens/dev_warning.c.obj"
   "CMakeFiles/silver_rod.dir/screens/raylib_logo.c.obj"
   "CMakeFiles/silver_rod.dir/silver_rod.c.obj"
