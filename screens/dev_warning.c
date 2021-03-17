@@ -2,10 +2,11 @@
 // Created by smeek on 14/03/2021.
 //
 
-#include "C:\Users\18432\Desktop\medoing\silver-rod-git\include\raylib.h" //TODO figure out why this isn't working like normal with include/raylib.h :\
+#include "../include/raylib.h"
 
 static int framesCounter;
 static int finishScreen;
+static float alpha = 1.0f;
 
 void InitDevScreen(void){
     framesCounter = 0;
@@ -19,8 +20,8 @@ void UpdateDevScreen(void){
 }
 
 void DrawDevScreen () {
-    DrawRectangle(0, 0, GetScreenWidth(), GetScreenHeight(), LIGHTGRAY);
-    DrawText("WARNING: this is a developmental build.", 1920/2, 1080/2, 20, PINK);
+    DrawRectangle(0, 0, GetScreenWidth(), GetScreenHeight(), PINK);
+    DrawText("WARNING: this is a developmental build.",GetScreenWidth()/8, GetScreenHeight()/2, 70, Fade(WHITE, alpha));
 }
 
 void UnloadDevScreen(void){

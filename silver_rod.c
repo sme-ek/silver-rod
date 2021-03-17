@@ -119,7 +119,7 @@ static void UpdateScreen(void) {
         }
     }
     else{
-    upTransition();
+        upTransition();
     }
 
     BeginDrawing();
