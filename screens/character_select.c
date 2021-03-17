@@ -9,9 +9,9 @@ static int finishScreen;
 static float alpha = 1.0f;
 
 //general variable for character select
-static void fem_player;
-static void masc_player;
-static void selectedPlayer;
+static fem_player;
+static masc_player;
+static selectedPlayer;
 
 //the area that the player can click to select their character
 static Rectangle selectFemArea;
