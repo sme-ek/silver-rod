@@ -29,59 +29,33 @@
 
 typedef enum GameScreen { RL_LOGO = 0, DEV_WARNING} GameScreen;
 
-//----------------------------------------------------------------------------------
-// Global Variables Definition
-//----------------------------------------------------------------------------------
+
 extern GameScreen currentScreen;
 
 #ifdef __cplusplus
 extern "C" {            // Prevents name mangling of functions
 #endif
 
-//----------------------------------------------------------------------------------
-// raylib Logo Screen Functions Declaration
-//----------------------------------------------------------------------------------
+//raylib logo screen declaration
 void rlInitLogoScreen(void);
 void rlUpdateLogoScreen(void);
 void rlDrawLogoScreen(void);
 void rlUnloadLogoScreen(void);
 int rlFinishLogoScreen(void);
 
-//----------------------------------------------------------------------------------
-// Title Screen Functions Declaration
-//----------------------------------------------------------------------------------
+//development warning screen declaration
 void InitDevScreen(void);
 void UpdateDevScreen(void);
 void DrawDevScreen(void);
 void UnloadDevScreen(void);
 int FinishDevScreen(void);
 
-//----------------------------------------------------------------------------------
-// Options Screen Functions Declaration
-//----------------------------------------------------------------------------------
-void InitOptionsScreen(void);
-void UpdateOptionsScreen(void);
-void DrawOptionsScreen(void);
-void UnloadOptionsScreen(void);
-int FinishOptionsScreen(void);
-
-//----------------------------------------------------------------------------------
-// Gameplay Screen Functions Declaration
-//----------------------------------------------------------------------------------
-void InitGameplayScreen(void);
-void UpdateGameplayScreen(void);
-void DrawGameplayScreen(void);
-void UnloadGameplayScreen(void);
-int FinishGameplayScreen(void);
-
-//----------------------------------------------------------------------------------
-// Ending Screen Functions Declaration
-//----------------------------------------------------------------------------------
-void InitEndingScreen(void);
-void UpdateEndingScreen(void);
-void DrawEndingScreen(void);
-void UnloadEndingScreen(void);
-int FinishEndingScreen(void);
+//character select screen declaration
+void InitCharacterScreen(void);
+void UpdateCharacterScreen(void);
+void DrawCharacterScreen(void);
+void UnloadCharacterScreen(void);
+void FinishCharacterScreen(void);
 
 #ifdef __cplusplus
 }
