@@ -29,12 +29,13 @@ int main(void)
     InitWindow(screenWidth, screenHeight, "silver rod 21.1");
     SetTargetFPS(60);
 
-//run through opening sequence
+//initiate all game screens
     rlInitLogoScreen();
     InitDevScreen();
+    InitCharacterScreen();
 
     while (!WindowShouldClose()){
-        UpdateScreen(); //TODO update to a better command so work with more than just the opening sequence lolz
+        UpdateScreen();
     }
 }
 
@@ -56,12 +57,14 @@ void ChangeScreen(int screen) {
     switch (currentScreen) {
         case RL_LOGO: rlUnloadLogoScreen(); break;
         case DEV_WARNING: UnloadDevScreen(); break;
+        case CHARACTER_SELECT: UnloadCharacterScreen(); break;
         default: break;
     }
     //switch to next screen
     switch (screen) {
         case RL_LOGO: rlInitLogoScreen(); break;
         case DEV_WARNING: DrawDevScreen(); break;
+        case CHARACTER_SELECT: DrawCharacterScreen(); break;
         default: break;
     }
     currentScreen = screen;
@@ -75,6 +78,7 @@ void upTransition(void){
             switch (transFromScreen){
                 case RL_LOGO: rlUnloadLogoScreen(); break;
                 case DEV_WARNING: UnloadDevScreen(); break;
+                case CHARACTER_SELECT: UnloadCharacterScreen(); break;
                 default: break;
             }
             switch (transToScreen){
@@ -86,6 +90,10 @@ void upTransition(void){
                     InitDevScreen();
                     currentScreen = DEV_WARNING;
                 } break;
+                case CHARACTER_SELECT:{
+                    InitCharacterScreen();
+                    currentScreen = CHARACTER_SELECT;
+                }
                 default: break;
             }
             transFadeOut = true;
@@ -109,11 +117,14 @@ static void UpdateScreen(void) {
             case RL_LOGO: {
                 rlUpdateLogoScreen();
                 if (rlFinishLogoScreen()) TransitionScreen(DEV_WARNING);
-            }
-                break;
+            } break;
             case DEV_WARNING: {
                 UpdateDevScreen();
-                if (FinishDevScreen() == 1) TransitionScreen(RL_LOGO);
+                if (FinishDevScreen() == 1) TransitionScreen(CHARACTER_SELECT);
+            } break;
+            case CHARACTER_SELECT: {
+                UpdateCharacterScreen();
+                if (FinishCharacterScreen() == 1) TransitionScreen(RL_LOGO);
             } break;
             default: break;
         }
@@ -128,6 +139,7 @@ static void UpdateScreen(void) {
     switch(currentScreen){
         case RL_LOGO: rlDrawLogoScreen(); break;
         case DEV_WARNING: DrawDevScreen(); break;
+        case CHARACTER_SELECT: DrawCharacterScreen(); break;
         default: break;
     }
     if (onTransition) DrawTransition();

@@ -20,7 +20,7 @@ void UpdateDevScreen(void){
 }
 
 void DrawDevScreen () {
-    DrawRectangle(0, 0, GetScreenWidth(), GetScreenHeight(), PINK);
+    DrawRectangle(0, 0, 1920, 1080, Fade(PINK, alpha));
     DrawText("WARNING: this is a developmental build.",GetScreenWidth()/8, GetScreenHeight()/2, 70, Fade(WHITE, alpha));
 }
 

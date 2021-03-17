@@ -4,6 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
+  "C:/Users/18432/Desktop/medoing/silver-rod-git/screens/character_select.c" "C:/Users/18432/Desktop/medoing/silver-rod-git/cmake-build-debug/CMakeFiles/silver_rod.dir/screens/character_select.c.obj"
   "C:/Users/18432/Desktop/medoing/silver-rod-git/screens/dev_warning.c" "C:/Users/18432/Desktop/medoing/silver-rod-git/cmake-build-debug/CMakeFiles/silver_rod.dir/screens/dev_warning.c.obj"
   "C:/Users/18432/Desktop/medoing/silver-rod-git/screens/raylib_logo.c" "C:/Users/18432/Desktop/medoing/silver-rod-git/cmake-build-debug/CMakeFiles/silver_rod.dir/screens/raylib_logo.c.obj"
   "C:/Users/18432/Desktop/medoing/silver-rod-git/silver_rod.c" "C:/Users/18432/Desktop/medoing/silver-rod-git/cmake-build-debug/CMakeFiles/silver_rod.dir/silver_rod.c.obj"
