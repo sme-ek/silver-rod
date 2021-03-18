@@ -9,9 +9,7 @@ static int finishScreen;
 static float alpha = 1.0f;
 
 //general variable for character select
-static fem_player;
-static masc_player;
-static selectedPlayer;
+bool selectedPlayer;
 
 //the area that the player can click to select their character
 static Rectangle selectFemArea;
@@ -29,21 +27,18 @@ void InitCharacterScreen(void){
     selectMascArea = (struct Rectangle){1250, 200, 350, 900};
 }
 
-void SelectCharacter(void){
-    if (GetMouseX() == 150 && GetMouseY() == 200){
-        selectedPlayer == fem_player;
+bool SelectedPlayer(){
+    if (GetMouseX() == 150 && GetMouseY() == 200 && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) { //fem
+        selectedPlayer = 1;
     }
-    if (GetMouseX() == 1250 && GetMouseY() == 200){
-        selectedPlayer == masc_player;
+    if (GetMouseX() == 1250 && GetMouseY() == 200 && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) { //masc
+        selectedPlayer = 2;
     }
 }
 
-void UpdateCharacterScreen(void){
-    if (selectedPlayer == fem_player){
-        finishScreen == 1;
-    }
-    if (selectedPlayer == masc_player){
-        finishScreen == 2;
+void UpdateCharacterScreen() {
+    if (SelectedPlayer == 1 || 2){
+        finishScreen = 1;
     }
 }
 

@@ -27,7 +27,7 @@
 #define SCREENS_H
 
 
-typedef enum GameScreen { RL_LOGO = 0, DEV_WARNING, CHARACTER_SELECT} GameScreen;
+typedef enum GameScreen { RL_LOGO = 0, DEV_WARNING, CHARACTER_SELECT, CHARACTER_CONFIRM} GameScreen;
 
 
 extern GameScreen currentScreen;
@@ -56,6 +56,14 @@ void UpdateCharacterScreen(void);
 void DrawCharacterScreen(void);
 void UnloadCharacterScreen(void);
 int FinishCharacterScreen(void);
+bool SelectedPlayer();
+
+//character confirmation screen declaration
+void InitConfirmScreen(void);
+void UpdateConfirmScreen(void);
+void DrawConfirmScreen(void);
+void UnloadConfirmScreen(void);
+int FinishConfirmScreen(void);
 
 #ifdef __cplusplus
 }

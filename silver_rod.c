@@ -10,7 +10,7 @@ GameScreen currentScreen = 0;
 
 const int screenWidth = 1920;
 const int screenHeight = 1080;
-
+bool PlayerCharacter;
 //screen transitions!
 static float transAlpha = 0.0f;
 static bool onTransition = false;
@@ -31,6 +31,7 @@ int main(void)
     music = LoadMusicStream("resources/audio/time machine.wav"); //TODO figure out why this isn't loading in lol
     SetMusicVolume(music, 1.0f);
     PlayMusicStream(music);
+
 //initiate all screens
     rlInitLogoScreen();
     InitDevScreen();
@@ -61,6 +62,7 @@ void ChangeScreen(int screen) {
         case RL_LOGO: rlUnloadLogoScreen(); break;
         case DEV_WARNING: UnloadDevScreen(); break;
         case CHARACTER_SELECT: UnloadCharacterScreen(); break;
+        case CHARACTER_CONFIRM: UnloadConfirmScreen(); break;
         default: break;
     }
 //switch to next screen
@@ -68,6 +70,7 @@ void ChangeScreen(int screen) {
         case RL_LOGO: rlInitLogoScreen(); break;
         case DEV_WARNING: DrawDevScreen(); break;
         case CHARACTER_SELECT: DrawCharacterScreen(); break;
+        case CHARACTER_CONFIRM: DrawConfirmScreen(); break;
         default: break;
     }
     currentScreen = screen;
@@ -82,6 +85,7 @@ void upTransition(void){
                 case RL_LOGO: rlUnloadLogoScreen(); break;
                 case DEV_WARNING: UnloadDevScreen(); break;
                 case CHARACTER_SELECT: UnloadCharacterScreen(); break;
+                case CHARACTER_CONFIRM: UnloadConfirmScreen(); break;
                 default: break;
             }
             switch (transToScreen){
@@ -97,6 +101,10 @@ void upTransition(void){
                     InitCharacterScreen();
                     currentScreen = CHARACTER_SELECT;
                 }
+                case CHARACTER_CONFIRM:{
+                    InitConfirmScreen();
+                    currentScreen = CHARACTER_CONFIRM;
+                } break;
                 default: break;
             }
             transFadeOut = true;
@@ -127,7 +135,11 @@ static void UpdateScreen(void) {
             } break;
             case CHARACTER_SELECT: {
                 UpdateCharacterScreen();
-                if (FinishCharacterScreen() == 1) TransitionScreen(RL_LOGO);
+                if (SelectedPlayer() == 1 || 2) TransitionScreen(CHARACTER_CONFIRM);
+            } break;
+            case CHARACTER_CONFIRM:{
+                UpdateConfirmScreen();
+                if (FinishConfirmScreen() == 1) TransitionScreen(RL_LOGO);
             } break;
             default: break;
         }
@@ -143,6 +155,7 @@ static void UpdateScreen(void) {
         case RL_LOGO: rlDrawLogoScreen(); break;
         case DEV_WARNING: DrawDevScreen(); break;
         case CHARACTER_SELECT: DrawCharacterScreen(); break;
+        case CHARACTER_CONFIRM: DrawConfirmScreen(); break;
         default: break;
     }
     if (onTransition) DrawTransition();
