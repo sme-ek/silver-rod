@@ -17,24 +17,27 @@ static bool onTransition = false;
 static bool transFadeOut = false;
 static int transFromScreen = -1;
 static int transToScreen = -1;
-
+static Music music;
 static void UpdateScreen();
 
 static void DrawTransition();
 
 int main(void)
 {
-
-//game params
+//game params & global data loading
     InitWindow(screenWidth, screenHeight, "silver rod 21.1");
     SetTargetFPS(60);
-
-//initiate all game screens
+    InitAudioDevice();
+    music = LoadMusicStream("resources/audio/time machine.wav"); //TODO figure out why this isn't loading in lol
+    SetMusicVolume(music, 1.0f);
+    PlayMusicStream(music);
+//initiate all screens
     rlInitLogoScreen();
     InitDevScreen();
     InitCharacterScreen();
 
     while (!WindowShouldClose()){
+
         UpdateScreen();
     }
 }
@@ -53,14 +56,14 @@ static void DrawTransition() {
 }
 
 void ChangeScreen(int screen) {
-    //unload screen first
+//unload screen first
     switch (currentScreen) {
         case RL_LOGO: rlUnloadLogoScreen(); break;
         case DEV_WARNING: UnloadDevScreen(); break;
         case CHARACTER_SELECT: UnloadCharacterScreen(); break;
         default: break;
     }
-    //switch to next screen
+//switch to next screen
     switch (screen) {
         case RL_LOGO: rlInitLogoScreen(); break;
         case DEV_WARNING: DrawDevScreen(); break;

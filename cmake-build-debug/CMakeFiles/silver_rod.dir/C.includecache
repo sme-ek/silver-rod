@@ -12,7 +12,13 @@ stdarg.h
 stdbool.h
 -
 
-C:/Users/18432/Desktop/medoing/silver-rod-git/screens/character_select.c
-../include/raylib.h
+C:/Users/18432/Desktop/medoing/silver-rod-git/screens/screens.h
+
+C:/Users/18432/Desktop/medoing/silver-rod-git/silver_rod.c
+include/raylib.h
 C:/Users/18432/Desktop/medoing/silver-rod-git/include/raylib.h
+screens/screens.h
+C:/Users/18432/Desktop/medoing/silver-rod-git/screens/screens.h
+stdlib.h
+-
 
