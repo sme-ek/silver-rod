@@ -27,17 +27,20 @@ void InitCharacterScreen(void){
     selectMascArea = (struct Rectangle){1250, 200, 350, 900};
 }
 
-bool SelectedPlayer(){
-    if (GetMouseX() == 150 && GetMouseY() == 200 && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) { //fem
+bool SelectedPlayer() {
+    selectedPlayer = 0;
+
+    if (IsKeyPressed(1)) { //fem
         selectedPlayer = 1;
     }
-    if (GetMouseX() == 1250 && GetMouseY() == 200 && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) { //masc
+    if (IsKeyPressed(2)) { //masc
         selectedPlayer = 2;
     }
 }
 
+
 void UpdateCharacterScreen() {
-    if (SelectedPlayer == 1 || 2){
+    if (selectedPlayer == 1 || 2){
         finishScreen = 1;
     }
 }

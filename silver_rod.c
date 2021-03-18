@@ -62,7 +62,8 @@ void ChangeScreen(int screen) {
         case RL_LOGO: rlUnloadLogoScreen(); break;
         case DEV_WARNING: UnloadDevScreen(); break;
         case CHARACTER_SELECT: UnloadCharacterScreen(); break;
-        case CHARACTER_CONFIRM: UnloadConfirmScreen(); break;
+        case FEM_CONFIRM: UnloadFemScreen(); break;
+        case MASC_CONFIRM: UnloadMascScreen(); break;
         default: break;
     }
 //switch to next screen
@@ -70,7 +71,8 @@ void ChangeScreen(int screen) {
         case RL_LOGO: rlInitLogoScreen(); break;
         case DEV_WARNING: DrawDevScreen(); break;
         case CHARACTER_SELECT: DrawCharacterScreen(); break;
-        case CHARACTER_CONFIRM: DrawConfirmScreen(); break;
+        case FEM_CONFIRM: DrawFemScreen(); break;
+        case MASC_CONFIRM: DrawMascScreen(); break;
         default: break;
     }
     currentScreen = screen;
@@ -85,7 +87,8 @@ void upTransition(void){
                 case RL_LOGO: rlUnloadLogoScreen(); break;
                 case DEV_WARNING: UnloadDevScreen(); break;
                 case CHARACTER_SELECT: UnloadCharacterScreen(); break;
-                case CHARACTER_CONFIRM: UnloadConfirmScreen(); break;
+                case FEM_CONFIRM: UnloadFemScreen(); break;
+                case MASC_CONFIRM: UnloadMascScreen(); break;
                 default: break;
             }
             switch (transToScreen){
@@ -101,9 +104,13 @@ void upTransition(void){
                     InitCharacterScreen();
                     currentScreen = CHARACTER_SELECT;
                 }
-                case CHARACTER_CONFIRM:{
-                    InitConfirmScreen();
-                    currentScreen = CHARACTER_CONFIRM;
+                case FEM_CONFIRM:{
+                    InitFemScreen();
+                    currentScreen = FEM_CONFIRM;
+                } break;
+                case MASC_CONFIRM:{
+                    InitMascScreen();
+                    currentScreen = MASC_CONFIRM;
                 } break;
                 default: break;
             }
@@ -135,11 +142,16 @@ static void UpdateScreen(void) {
             } break;
             case CHARACTER_SELECT: {
                 UpdateCharacterScreen();
-                if (SelectedPlayer() == 1 || 2) TransitionScreen(CHARACTER_CONFIRM);
+                if (SelectedPlayer() == 1) TransitionScreen(FEM_CONFIRM);
+                if (SelectedPlayer() != 1) TransitionScreen(MASC_CONFIRM);
             } break;
-            case CHARACTER_CONFIRM:{
-                UpdateConfirmScreen();
-                if (FinishConfirmScreen() == 1) TransitionScreen(RL_LOGO);
+            case FEM_CONFIRM: {
+                UpdateFemScreen();
+                if (FinishFemScreen() == 1) TransitionScreen(RL_LOGO);
+            } break;
+            case MASC_CONFIRM: {
+                UpdateMascScreen();
+                if (FinishMascScreen() == 1) TransitionScreen(RL_LOGO);
             } break;
             default: break;
         }
@@ -155,7 +167,8 @@ static void UpdateScreen(void) {
         case RL_LOGO: rlDrawLogoScreen(); break;
         case DEV_WARNING: DrawDevScreen(); break;
         case CHARACTER_SELECT: DrawCharacterScreen(); break;
-        case CHARACTER_CONFIRM: DrawConfirmScreen(); break;
+        case FEM_CONFIRM: DrawFemScreen(); break;
+        case MASC_CONFIRM: DrawMascScreen(); break;
         default: break;
     }
     if (onTransition) DrawTransition();
