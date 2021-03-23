@@ -27,7 +27,7 @@
 #define SCREENS_H
 
 
-typedef enum GameScreen { RL_LOGO = 0, DEV_WARNING, CHARACTER_SELECT} GameScreen;
+typedef enum GameScreen { RL_LOGO = 0, DEV_WARNING, TITLE} GameScreen;
 
 
 extern GameScreen currentScreen;
@@ -50,12 +50,6 @@ void DrawDevScreen(void);
 void UnloadDevScreen(void);
 int FinishDevScreen(void);
 
-//character select screen declaration
-void InitCharacterScreen(void);
-void UpdateCharacterScreen(void);
-void DrawCharacterScreen(void);
-void UnloadCharacterScreen(void);
-int FinishCharacterScreen(void);
 
 #ifdef __cplusplus
 }
